@@ -1,3 +1,4 @@
+import { User } from './../_models/user';
 import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -25,6 +26,10 @@ export class UserService {
 
     return this.http.get<User>(this.baseUrl + 'users/' + id);
 
+  }
+
+  updateUser(id: number, user: User) {
+    return this.http.put(this.baseUrl + 'users/' + id, user);
   }
 
 }
